@@ -22,6 +22,7 @@ public class StandAloneTest {
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 
+//		System.setProperty("webdriver.chrome.driver", "C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver",
 				"C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
