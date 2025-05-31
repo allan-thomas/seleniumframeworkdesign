@@ -31,7 +31,7 @@ public class StandAloneTest {
 		String username = "atk@mail.com";
 		String password = "Atk.1881";
 		String productName = "ZARA COAT 3";
-		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get("https://rahulshettyacademy.com/client");
 		driver.findElement(By.cssSelector("#userEmail")).sendKeys(username);
 		driver.findElement(By.cssSelector("#userPassword")).sendKeys(password);

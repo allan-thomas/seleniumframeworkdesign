@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import javaseleniumlearning.pageobjects.CartPage;
 import javaseleniumlearning.pageobjects.LandingPage;
 import javaseleniumlearning.pageobjects.ProductCatalogue;
 
@@ -33,7 +34,7 @@ public class SubmitOrderTest {
 		String username= "atk@mail.com";
 		String password= "Atk.1881";
 		String productName = "ZARA COAT 3";
-		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		LandingPage landingpage = new LandingPage(driver);
 		landingpage.goTo();
 		landingpage.loginApplication(username, password);
@@ -42,19 +43,18 @@ public class SubmitOrderTest {
 		List<WebElement> products = productcatalogue.getProductList();
 		productcatalogue.addProductToCart(productName);
 		  
-		
-		
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
-		List<WebElement> cartProducts = driver.findElements(By.cssSelector(".cart ul"));
+		//Thread.sleep(3000);
+
+		CartPage cart = new CartPage(driver);
+		List<WebElement> cartProducts = cart.CartProductsEle();
+		cart.checkForProductName(productName);
+		cart.checkoutBtn();
 //		WebElement cprod = cartProducts.stream().filter(cartProduct->cartProduct.findElement(By.cssSelector("h3")).getText().equals(productName)).findFirst().orElse(null);
 //		System.out.println(cprod.findElement(By.cssSelector("h3")).getText());
-		boolean match = cartProducts.stream().anyMatch(cartProduct->cartProduct.findElement(By.cssSelector("h3")).getText().equals(productName));
-		Assert.assertTrue(match);
-		driver.findElement(By.xpath("(//li/button)[5]")).click();
+		
 		Actions action = new Actions(driver);
 		action.sendKeys(driver.findElement(By.xpath("(//input[@class='input txt text-validated'])[2]")), "indi").build().perform();
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".ta-results"))));
+		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".ta-results"))));
 		driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)")).click();
 //		WebElement country = driver.findElement(By.xpath("(//input[@class='input txt text-validated'])[2]"));
 //		country.sendKeys("Indi");
@@ -70,7 +70,7 @@ public class SubmitOrderTest {
 		Assert.assertTrue(orderMsg.equalsIgnoreCase("Thankyou for the order."));
 		String orderIDarray = driver.findElement(By.cssSelector("label.ng-star-inserted")).getText().split(" ")[1];
 		System.out.println(orderIDarray);
-		driver.quit();
+		//driver.quit();
 		
 	}
 

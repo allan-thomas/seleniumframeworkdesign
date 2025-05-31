@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 import javaseleniumlearning.AbstractComponents.AbstactComponent;
 
@@ -21,32 +22,40 @@ public class ProductCatalogue extends AbstactComponent {
 		PageFactory.initElements(driver, this);
 	}
 
-	// 		List<WebElement> products =  driver.findElements(By.cssSelector(".mb-3"));
+	// List<WebElement> products = driver.findElements(By.cssSelector(".mb-3"));
 
 	@FindBy(css = ".mb-3")
 	List<WebElement> products;
+
 	
+
 	By addToCart = By.cssSelector("button.w-10");
 	By toasterMsg = By.cssSelector("#toast-container");
-	
+	By loadingScreen = By.cssSelector(".ng-animating");
+
 	public List<WebElement> getProductList() {
 		return products;
 	}
-	
-	public WebElement getProductByName(String productName ) {
-		WebElement prod =  products.stream().filter(product->product.findElement(By.cssSelector("B")).getText().equals(productName)).findFirst().orElse(null);
+
+	public WebElement getProductByName(String productName) {
+		WebElement prod = products.stream()
+				.filter(product -> product.findElement(By.cssSelector("B")).getText().equals(productName)).findFirst()
+				.orElse(null);
 		return prod;
 	}
-	
+
 	public void addProductToCart(String productName) {
-		//prod.findElement(By.cssSelector("button.w-10")).click();
+		// prod.findElement(By.cssSelector("button.w-10")).click();
 //		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
-		WebElement prod =  getProductByName(productName);
+		WebElement prod = getProductByName(productName);
 		prod.findElement(addToCart).click();
 		waitForElementToAppear(toasterMsg);
+		waitForElementToDisappear(loadingScreen);
+		
+
+
+//		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
+		clickCart();
 	}
-	
 
-
-	
 }
