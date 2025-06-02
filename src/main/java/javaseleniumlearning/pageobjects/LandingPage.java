@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import javaseleniumlearning.AbstractComponents.AbstactComponent;
+import javaseleniumlearning.AbstractComponents.AbstractComponent;
 
 public class LandingPage {
 
@@ -36,10 +36,12 @@ public class LandingPage {
 		driver.get("https://rahulshettyacademy.com/client");
 	}
 
-	public void loginApplication(String email, String password) {
+	public ProductCatalogue loginApplication(String email, String password) {
 		username.sendKeys(email);
 		passwordEle.sendKeys(password);
 		loginbutton.click();
+		//ProductCatalogue productcatalogue = new ProductCatalogue(driver);
+		return new ProductCatalogue(driver);
 	}
 
 }

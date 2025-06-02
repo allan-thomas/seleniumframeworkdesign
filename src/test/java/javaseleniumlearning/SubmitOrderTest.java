@@ -16,6 +16,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import javaseleniumlearning.pageobjects.CartPage;
+import javaseleniumlearning.pageobjects.CheckoutPage;
+import javaseleniumlearning.pageobjects.ConfirmationPage;
 import javaseleniumlearning.pageobjects.LandingPage;
 import javaseleniumlearning.pageobjects.ProductCatalogue;
 
@@ -23,54 +25,38 @@ public class SubmitOrderTest {
 
 	
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
-		
-//		System.setProperty("webdriver.chrome.driver", "C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
-		System.setProperty("webdriver.chrome.driver",
+
 				"C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		
 		String username= "atk@mail.com";
 		String password= "Atk.1881";
-		String productName = "ZARA COAT 3";
+		String productName = "ZARA COAT 3", country = "indi";
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		LandingPage landingpage = new LandingPage(driver);
 		landingpage.goTo();
-		landingpage.loginApplication(username, password);
+		ProductCatalogue productcatalogue = landingpage.loginApplication(username, password);
 		
-		ProductCatalogue productcatalogue = new ProductCatalogue(driver);
-		List<WebElement> products = productcatalogue.getProductList();
-		productcatalogue.addProductToCart(productName);
-		  
-		//Thread.sleep(3000);
 
-		CartPage cart = new CartPage(driver);
-		List<WebElement> cartProducts = cart.CartProductsEle();
-		cart.checkForProductName(productName);
-		cart.checkoutBtn();
-//		WebElement cprod = cartProducts.stream().filter(cartProduct->cartProduct.findElement(By.cssSelector("h3")).getText().equals(productName)).findFirst().orElse(null);
-//		System.out.println(cprod.findElement(By.cssSelector("h3")).getText());
+		List<WebElement> products = productcatalogue.getProductList();
+		CartPage cart = productcatalogue.addProductToCart(productName);
+		  
+
 		
-		Actions action = new Actions(driver);
-		action.sendKeys(driver.findElement(By.xpath("(//input[@class='input txt text-validated'])[2]")), "indi").build().perform();
-		//wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".ta-results"))));
-		driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)")).click();
-//		WebElement country = driver.findElement(By.xpath("(//input[@class='input txt text-validated'])[2]"));
-//		country.sendKeys("Indi");
-//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".ta-results"))));
-//		int i=0;
-//		while (i<2) {
-//			country.sendKeys(Keys.DOWN);
-//			i++;
-//		}
-//		country.sendKeys(Keys.ENTER);
-		driver.findElement(By.cssSelector(".btnn")).click();
-		String orderMsg = driver.findElement(By.cssSelector(".hero-primary")).getText();
-		Assert.assertTrue(orderMsg.equalsIgnoreCase("Thankyou for the order."));
-		String orderIDarray = driver.findElement(By.cssSelector("label.ng-star-inserted")).getText().split(" ")[1];
-		System.out.println(orderIDarray);
-		//driver.quit();
+		List<WebElement> cartProducts = cart.CartProductsEle();
+		boolean match = cart.checkForProductName(productName);
+		Assert.assertTrue(match);
+		CheckoutPage checkoutpage = cart.checkoutBtn();
+
+		
+		
+		ConfirmationPage confirmationpage = checkoutpage.cartCheckout(country);
+		String actualText = confirmationpage.getConfirmationMessage();
+		Assert.assertTrue(actualText.equalsIgnoreCase("Thankyou for the order."));
+		System.out.println(confirmationpage.getorderID());
+		
+
 		
 	}
 

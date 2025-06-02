@@ -10,9 +10,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import javaseleniumlearning.AbstractComponents.AbstactComponent;
+import javaseleniumlearning.AbstractComponents.AbstractComponent;
 
-public class ProductCatalogue extends AbstactComponent {
+public class ProductCatalogue extends AbstractComponent {
 
 	WebDriver driver;
 
@@ -44,18 +44,19 @@ public class ProductCatalogue extends AbstactComponent {
 		return prod;
 	}
 
-	public void addProductToCart(String productName) {
+	public CartPage addProductToCart(String productName) {
 		// prod.findElement(By.cssSelector("button.w-10")).click();
 //		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
 		WebElement prod = getProductByName(productName);
 		prod.findElement(addToCart).click();
 		waitForElementToAppear(toasterMsg);
 		waitForElementToDisappear(loadingScreen);
-		
-
+		goToCartPage();
+		//CartPage cart = new CartPage(driver);
+		return new CartPage(driver);
 
 //		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
-		clickCart();
+//		goToCartPage();
 	}
 
 }

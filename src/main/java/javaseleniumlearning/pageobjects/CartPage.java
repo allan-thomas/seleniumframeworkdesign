@@ -32,13 +32,16 @@ public class CartPage {
 //	Assert.assertTrue(match);
 //	driver.findElement(By.xpath("(//li/button)[5]")).click();
 	
-	public void checkForProductName(String productName) {
+	public boolean checkForProductName(String productName) {
 		boolean match = cartProducts.stream().anyMatch(cartProduct->cartProduct.findElement(By.cssSelector("h3")).getText().equals(productName));
-		Assert.assertTrue(match);
+		return match;
+
 	}
 	
-	public void checkoutBtn() {
+	public CheckoutPage checkoutBtn() {
 		checkoutButton.click();
+		//CheckoutPage checkoutpage = new CheckoutPage(driver);
+		return new CheckoutPage(driver);
 	}
 	
 
