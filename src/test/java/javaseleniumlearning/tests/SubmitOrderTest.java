@@ -1,5 +1,6 @@
-package javaseleniumlearning;
+package javaseleniumlearning.tests;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,49 +16,39 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import javaseleniumlearning.TestComponents.BaseTest;
 import javaseleniumlearning.pageobjects.CartPage;
 import javaseleniumlearning.pageobjects.CheckoutPage;
 import javaseleniumlearning.pageobjects.ConfirmationPage;
 import javaseleniumlearning.pageobjects.LandingPage;
 import javaseleniumlearning.pageobjects.ProductCatalogue;
 
-public class SubmitOrderTest {
+public class SubmitOrderTest extends BaseTest {
 
-	
-	public static void main(String[] args) throws InterruptedException {
+	@Test
+	public void submitOrder() throws InterruptedException, IOException {
 
-				"C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		
-		String username= "atk@mail.com";
-		String password= "Atk.1881";
+		String username = "atk@mail.com";
+		String password = "Atk.1881";
 		String productName = "ZARA COAT 3", country = "indi";
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-		LandingPage landingpage = new LandingPage(driver);
+
+		LandingPage landingpage = launchApplication();
 		landingpage.goTo();
 		ProductCatalogue productcatalogue = landingpage.loginApplication(username, password);
-		
 
 		List<WebElement> products = productcatalogue.getProductList();
 		CartPage cart = productcatalogue.addProductToCart(productName);
-		  
 
-		
 		List<WebElement> cartProducts = cart.CartProductsEle();
 		boolean match = cart.checkForProductName(productName);
-		Assert.assertTrue(match);
+		Assert.assertTrue(match);  
 		CheckoutPage checkoutpage = cart.checkoutBtn();
 
-		
-		
 		ConfirmationPage confirmationpage = checkoutpage.cartCheckout(country);
 		String actualText = confirmationpage.getConfirmationMessage();
 		Assert.assertTrue(actualText.equalsIgnoreCase("Thankyou for the order."));
 		System.out.println(confirmationpage.getorderID());
-		
 
-		
 	}
 
 }

@@ -1,4 +1,4 @@
-package javaseleniumlearning;
+package javaseleniumlearning.tests;
 
 import java.time.Duration;
 import java.util.List;
