@@ -8,11 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import javaseleniumlearning.AbstractComponents.AbstractComponent;
 
-public class LandingPage {
+public class LandingPage extends AbstractComponent {
 
 	WebDriver driver;
 
 	public LandingPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -31,6 +32,9 @@ public class LandingPage {
 
 	@FindBy(css = "#login")
 	WebElement loginbutton;
+	
+	@FindBy(css = ".toast-bottom-right")
+	WebElement errorMessage;
 
 	public void goTo() {
 		driver.get("https://rahulshettyacademy.com/client");
@@ -42,6 +46,11 @@ public class LandingPage {
 		loginbutton.click();
 		//ProductCatalogue productcatalogue = new ProductCatalogue(driver);
 		return new ProductCatalogue(driver);
+	}
+	
+	public String getErrorMessage() {
+		waitForWebElementToAppear(errorMessage);
+		return errorMessage.getText();
 	}
 
 }

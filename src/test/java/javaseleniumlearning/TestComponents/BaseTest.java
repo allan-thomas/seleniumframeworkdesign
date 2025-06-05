@@ -7,12 +7,16 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import javaseleniumlearning.pageobjects.LandingPage;
 
 public class BaseTest {
 	
 	public WebDriver driver;
+	
+	public LandingPage landingpage;
 
 	public WebDriver initializeDriver() throws IOException {
 
@@ -24,9 +28,8 @@ public class BaseTest {
 
 		
 		if (browserName.equals("chrome")) {
-//		System.setProperty("webdriver.chrome.driver", "C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver",
-					"C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
+//			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
 			 driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -45,9 +48,17 @@ public class BaseTest {
 
 	}
 	
+	@BeforeMethod
 	public LandingPage launchApplication() throws IOException {
 		driver= initializeDriver();
-		LandingPage landingpage = new LandingPage(driver);
+		landingpage = new LandingPage(driver);
+		landingpage.goTo();
 		return landingpage;
+	}
+	
+	@AfterMethod
+	public void tearDown()
+	{
+		driver.close();
 	}
 }
