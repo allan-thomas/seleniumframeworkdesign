@@ -28,8 +28,8 @@ public class BaseTest {
 
 		
 		if (browserName.equals("chrome")) {
-		System.setProperty("webdriver.chrome.driver", "C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
-//			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
+//		System.setProperty("webdriver.chrome.driver", "C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
 			 driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

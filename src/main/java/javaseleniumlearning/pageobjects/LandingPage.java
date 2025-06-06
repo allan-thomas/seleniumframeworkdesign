@@ -32,7 +32,7 @@ public class LandingPage extends AbstractComponent {
 
 	@FindBy(css = "#login")
 	WebElement loginbutton;
-	
+
 	@FindBy(css = ".toast-bottom-right")
 	WebElement errorMessage;
 
@@ -44,13 +44,14 @@ public class LandingPage extends AbstractComponent {
 		username.sendKeys(email);
 		passwordEle.sendKeys(password);
 		loginbutton.click();
-		//ProductCatalogue productcatalogue = new ProductCatalogue(driver);
+		// ProductCatalogue productcatalogue = new ProductCatalogue(driver);
 		return new ProductCatalogue(driver);
 	}
-	
+
 	public String getErrorMessage() {
 		waitForWebElementToAppear(errorMessage);
 		return errorMessage.getText();
 	}
 
+	
 }
