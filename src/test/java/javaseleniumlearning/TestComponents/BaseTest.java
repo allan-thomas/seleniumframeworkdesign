@@ -54,6 +54,7 @@ public class BaseTest {
 		landingpage = new LandingPage(driver);
 		landingpage.goTo();
 		return landingpage;
+		//
 	}
 	
 	@AfterMethod
