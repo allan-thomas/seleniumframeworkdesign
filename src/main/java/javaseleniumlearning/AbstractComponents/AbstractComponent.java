@@ -10,6 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javaseleniumlearning.pageobjects.CartPage;
+import javaseleniumlearning.pageobjects.OrderPage;
+
 public class AbstractComponent {
 	
 	WebDriver driver;
@@ -20,6 +23,9 @@ public class AbstractComponent {
 	
 	@FindBy(xpath = "//button[@routerlink='/dashboard/cart']")
 	WebElement cartBtn;
+	
+	@FindBy(css = "[routerlink*='myorders']")
+	WebElement myorderBtn;
 
 	public void waitForElementToAppear(By findBy) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
@@ -36,9 +42,16 @@ public class AbstractComponent {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(findBy));
 	}
 	
-	public void goToCartPage() {
+	public CartPage goToCartPage() {
 		cartBtn.click();
+		return new CartPage(driver);
 	}
+	
+	public OrderPage goToOrdersPage() {
+		myorderBtn.click();
+		return new OrderPage(driver);
+	}
+	
 	
 	public Actions actions() {
 		Actions action = new Actions(driver);

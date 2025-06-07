@@ -21,16 +21,17 @@ import javaseleniumlearning.pageobjects.CartPage;
 import javaseleniumlearning.pageobjects.CheckoutPage;
 import javaseleniumlearning.pageobjects.ConfirmationPage;
 import javaseleniumlearning.pageobjects.LandingPage;
+import javaseleniumlearning.pageobjects.OrderPage;
 import javaseleniumlearning.pageobjects.ProductCatalogue;
 
 public class SubmitOrderTest extends BaseTest {
 
+	String username = "atk@mail.com";
+	String password = "Atk.1881";
+	String productName = "ZARA COAT 3", country = "indi";
+
 	@Test
 	public void submitOrder() throws InterruptedException, IOException {
-
-		String username = "atk@mail.com";
-		String password = "Atk.1881";
-		String productName = "ZARA COAT 3", country = "indi";
 
 		ProductCatalogue productcatalogue = landingpage.loginApplication(username, password);
 
@@ -39,13 +40,26 @@ public class SubmitOrderTest extends BaseTest {
 
 		List<WebElement> cartProducts = cart.CartProductsEle();
 		boolean match = cart.checkForProductName(productName);
-		Assert.assertTrue(match);  
+		Assert.assertTrue(match);
 		CheckoutPage checkoutpage = cart.checkoutBtn();
 
 		ConfirmationPage confirmationpage = checkoutpage.cartCheckout(country);
 		String actualText = confirmationpage.getConfirmationMessage();
 		Assert.assertTrue(actualText.equalsIgnoreCase("Thankyou for the order."));
 		System.out.println(confirmationpage.getorderID());
+
+	}
+
+	@Test(dependsOnMethods = "submitOrder")
+	public void OrderHistoryTest() {
+
+		ProductCatalogue productcatalogue = landingpage.loginApplication(username, password);
+		// boolean match =
+		// productcatalogue.goToOrdersPage().checkForProductName(productName); <- this
+		// is also correct
+		OrderPage orderpage = productcatalogue.goToOrdersPage();
+		boolean match = orderpage.checkForProductName(productName);
+		Assert.assertTrue(match);
 
 	}
 

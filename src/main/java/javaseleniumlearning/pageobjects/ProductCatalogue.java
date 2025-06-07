@@ -51,12 +51,12 @@ public class ProductCatalogue extends AbstractComponent {
 		prod.findElement(addToCart).click();
 		waitForElementToAppear(toasterMsg);
 		waitForElementToDisappear(loadingScreen);
-		goToCartPage();
-		//CartPage cart = new CartPage(driver);
-		return new CartPage(driver);
+		return goToCartPage();
+		//CartPage cart = new CartPage(driver);;
 
 //		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
 //		goToCartPage();
 	}
+	
 
 }
