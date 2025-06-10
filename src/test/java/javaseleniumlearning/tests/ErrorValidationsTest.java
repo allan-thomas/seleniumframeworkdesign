@@ -15,7 +15,7 @@ import javaseleniumlearning.pageobjects.ProductCatalogue;
 
 public class ErrorValidationsTest extends BaseTest {
 
-	@Test
+	@Test(groups = "ErrorHandling")
 	public void submitOrder() throws InterruptedException, IOException {
 
 		String username = "atk@mail.com";

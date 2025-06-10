@@ -1,64 +1,85 @@
 package javaseleniumlearning.TestComponents;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javaseleniumlearning.pageobjects.LandingPage;
 
 public class BaseTest {
-	
+
 	public WebDriver driver;
-	
+
 	public LandingPage landingpage;
 
 	public WebDriver initializeDriver() throws IOException {
 
 		Properties properties = new Properties();
-		FileInputStream fis = new FileInputStream(
-				System.getProperty("user.dir") +"\\src\\main\\java\\javaseleniumlearning\\resources\\GlobalData.properties");
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
+				+ "\\src\\main\\java\\javaseleniumlearning\\resources\\GlobalData.properties");
 		properties.load(fis);
 		String browserName = properties.getProperty("browser");
 
-		
 		if (browserName.equals("chrome")) {
-//		System.setProperty("webdriver.chrome.driver", "C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
-			 driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver",
+					"C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
+//			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
+			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-			
+
 		} else if (browserName.equals("firefox")) {
-			//for firefox driver initiaztion
-		
+			// for firefox driver initiaztion
+
 		} else if (browserName.equals("edge")) {
-			//for edge driver initiaztion
-		
+			// for edge driver initiaztion
+
 		}
-		
+
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		return driver;
 
 	}
-	
-	@BeforeMethod
+
+	@BeforeMethod(alwaysRun = true)
 	public LandingPage launchApplication() throws IOException {
-		driver= initializeDriver();
+		driver = initializeDriver();
 		landingpage = new LandingPage(driver);
 		landingpage.goTo();
 		return landingpage;
 	}
-	
-	@AfterMethod
-	public void tearDown()
-	{
+
+	@AfterMethod(alwaysRun = true)
+	public void tearDown() {
 		driver.close();
+	}
+
+	public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
+
+		// read json to String
+		String jsonContent = FileUtils.readFileToString(new File(filePath),
+				StandardCharsets.UTF_8);
+
+		// convert string to HashMap with Jackson databind
+		ObjectMapper mapper = new ObjectMapper();
+		List<HashMap<String, String>> data = mapper.readValue(jsonContent,
+				new TypeReference<List<HashMap<String, String>>>() {
+				});
+		return data;
 	}
 }

@@ -9,16 +9,50 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Submit Order Test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">14,518</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t1">Error Validations Test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">12,307</td><td></td><td></td></tr>
-<tr><th>Total</th><th class="num">4</th><th class="num">0</th><th class="num">0</th><th class="num">0</th><th class="num">26,825</th><th colspan="2"></th></tr>
+<tr><td><a href="#t0">Error Validations Test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">8</td><td>purchase</td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">Submit Order Test</a></td><td class="num">1</td><td class="num attn">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">20,158</td><td>purchase</td><td></td></tr>
+<tr><th>Total</th><th class="num">1</th><th class="num attn">1</th><th class="num">0</th><th class="num attn">1</th><th class="num">20,166</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Submit Order Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">javaseleniumlearning.tests.SubmitOrderTest</td><td><a href="#m0">OrderHistoryTest</a></td><td rowspan="1">1749220219777</td><td rowspan="1">601</td></tr><tr class="passedeven"><td><a href="#m1">submitOrder</a></td><td rowspan="1">1749220208710</td><td rowspan="1">9319</td></tr></tbody>
-<tbody id="t1"><tr><th colspan="4">Error Validations Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">javaseleniumlearning.tests.ErrorValidationsTest</td><td><a href="#m2">ProductErrorValidation</a></td><td rowspan="1">1749220222074</td><td rowspan="1">8455</td></tr><tr class="passedeven"><td><a href="#m3">submitOrder</a></td><td rowspan="1">1749220232330</td><td rowspan="1">404</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4" class="invisible"/></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">Submit Order Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">javaseleniumlearning.tests.SubmitOrderTest</td><td><a href="#m0">submitOrder</a></td><td rowspan="1">1749558039228</td><td rowspan="1">1724</td></tr><tr><th colspan="4">Submit Order Test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">javaseleniumlearning.tests.SubmitOrderTest</td><td><a href="#m1">OrderHistoryTest</a></td><td rowspan="1">1749558041132</td><td rowspan="1">0</td></tr><tr><th colspan="4">Submit Order Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">javaseleniumlearning.tests.SubmitOrderTest</td><td><a href="#m2">submitOrder</a></td><td rowspan="1">1749558024906</td><td rowspan="1">9751</td></tr></tbody>
 </table>
-<h2>Submit Order Test</h2><h3 id="m0">javaseleniumlearning.tests.SubmitOrderTest#OrderHistoryTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">javaseleniumlearning.tests.SubmitOrderTest#submitOrder</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>Error Validations Test</h2><h3 id="m2">javaseleniumlearning.tests.ErrorValidationsTest#ProductErrorValidation</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">javaseleniumlearning.tests.ErrorValidationsTest#submitOrder</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Error Validations Test</h2><h2>Submit Order Test</h2><h3 id="m0">javaseleniumlearning.tests.SubmitOrderTest#submitOrder</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{country=indi, password=Atk.1881, productName=ADIDAS ORIGINAL, username=atk@mail.com}</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button _ngcontent-uvt-c33=&quot;&quot; routerlink=&quot;/dashboard/cart&quot; class=&quot;btn btn-custom&quot; style=&quot;margin-top: -10px;&quot; tabindex=&quot;0&quot;&gt;...&lt;/button&gt; is not clickable at point (1685, 27). Other element would receive the click: &lt;div _ngcontent-uvt-c31=&quot;&quot; class=&quot;ngx-spinner-overlay ng-tns-c31-1 ng-trigger ng-trigger-fadeIn ng-star-inserted&quot; style=&quot;background-color: rgba(51, 51, 51, 0.8); z-index: 99999; position: fixed; opacity: 1;&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=137.0.7151.69)
+Build info: version: &apos;4.33.0&apos;, revision: &apos;2c6aaad03a&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [0d9c8c9884686fd3a307e606bf5fb3ba, clickElement {id=f.A3651142875C8DCA8AEB4B761C8A7737.d.D520C5214BF1D549062792076AECBB2F.e.84}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.69, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\167557\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55650}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55650/devtoo..., se:cdpVersion: 137.0.7151.69, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (0d9c8c9884686fd3a307e606bf5fb3ba)] -&gt; xpath: //button[@routerlink=&apos;/dashboard/cart&apos;]]
+Session ID: 0d9c8c9884686fd3a307e606bf5fb3ba
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+	at javaseleniumlearning.AbstractComponents.AbstractComponent.goToCartPage(AbstractComponent.java:46)
+	at javaseleniumlearning.pageobjects.ProductCatalogue.addProductToCart(ProductCatalogue.java:54)
+	at javaseleniumlearning.tests.SubmitOrderTest.submitOrder(SubmitOrderTest.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 20 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">javaseleniumlearning.tests.SubmitOrderTest#OrderHistoryTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method javaseleniumlearning.tests.SubmitOrderTest.OrderHistoryTest() on instance javaseleniumlearning.tests.SubmitOrderTest@15043a2f depends on not successfully finished methods 
+[javaseleniumlearning.tests.SubmitOrderTest.submitOrder() on instance javaseleniumlearning.tests.SubmitOrderTest@15043a2f]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+... Removed 8 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">javaseleniumlearning.tests.SubmitOrderTest#submitOrder</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>{country=indi, password=Atk.1881, productName=ZARA COAT 3, username=atk@mail.com}</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
