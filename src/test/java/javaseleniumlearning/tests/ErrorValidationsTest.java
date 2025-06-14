@@ -16,14 +16,14 @@ import javaseleniumlearning.pageobjects.ProductCatalogue;
 public class ErrorValidationsTest extends BaseTest {
 
 	@Test(groups = "ErrorHandling")
-	public void submitOrder() throws InterruptedException, IOException {
+	public void LoginErrorValidation() throws InterruptedException, IOException {
 
 		String username = "atk@mail.com";
 		String password = "At.1881";
 		String productName = "ZARA COAT 3", country = "indi";
 
 		ProductCatalogue productcatalogue = landingpage.loginApplication(username, password);
-		Assert.assertEquals(landingpage.getErrorMessage(), "Incorrect email or password.");
+		Assert.assertEquals(landingpage.getErrorMessage(), "Incorrect email password.");
 
 	}
 	
@@ -40,8 +40,8 @@ public class ErrorValidationsTest extends BaseTest {
 		CartPage cart = productcatalogue.addProductToCart(productName);
 
 		List<WebElement> cartProducts = cart.CartProductsEle();
-		boolean match = cart.checkForProductName("ZARA COAT 33");
-		Assert.assertFalse(match);  
+		boolean match = cart.checkForProductName("ZARA COAT 3");
+		Assert.assertTrue(match);  
 
 	}
 
