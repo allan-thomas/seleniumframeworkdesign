@@ -34,8 +34,8 @@ public class BaseTest {
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
 				+ "\\src\\main\\java\\javaseleniumlearning\\resources\\GlobalData.properties");
 		properties.load(fis);
-		String browserName = properties.getProperty("browser");
-
+		String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : properties.getProperty("browser") ;
+//		properties.getProperty("browser");
 		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver",
 					"C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");

@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.sun.net.httpserver.Authenticator.Retry;
+
 import javaseleniumlearning.TestComponents.BaseTest;
 import javaseleniumlearning.pageobjects.CartPage;
 import javaseleniumlearning.pageobjects.CheckoutPage;
@@ -27,7 +29,7 @@ public class ErrorValidationsTest extends BaseTest {
 
 	}
 	
-	@Test
+	@Test(retryAnalyzer = javaseleniumlearning.TestComponents.Retry.class)
 	public void ProductErrorValidation() throws InterruptedException, IOException {
 
 		String username = "atk@mail.com";
