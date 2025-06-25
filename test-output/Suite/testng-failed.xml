@@ -4,6 +4,18 @@
   <listeners>
     <listener class-name="javaseleniumlearning.TestComponents.Listeners"/>
   </listeners>
+  <test thread-count="5" parallel="tests" name="Submit Order Test(failed)">
+    <classes>
+      <class name="javaseleniumlearning.tests.SubmitOrderTest">
+        <methods>
+          <include name="submitOrder" invocation-numbers="1"/>
+          <include name="launchApplication"/>
+          <include name="OrderHistoryTest"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- javaseleniumlearning.tests.SubmitOrderTest -->
+    </classes>
+  </test> <!-- Submit Order Test(failed) -->
   <test thread-count="5" parallel="tests" name="Error Validations Test(failed)">
     <classes>
       <class name="javaseleniumlearning.tests.ErrorValidationsTest">

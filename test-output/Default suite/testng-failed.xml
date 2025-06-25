@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="javaseleniumlearning.tests.ErrorValidations">
+      <class name="javaseleniumlearning.tests.ErrorValidationsTest">
         <methods>
+          <include name="LoginErrorValidation"/>
           <include name="launchApplication"/>
-          <include name="submitOrder"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- javaseleniumlearning.tests.ErrorValidations -->
+      </class> <!-- javaseleniumlearning.tests.ErrorValidationsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

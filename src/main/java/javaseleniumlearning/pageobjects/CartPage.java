@@ -19,10 +19,10 @@ public class CartPage {
 	}
 	
 	@FindBy (css = ".cart ul")
-	List<WebElement> cartProducts;
+	private List<WebElement> cartProducts;
 	
 	@FindBy (xpath = "(//li/button)[5]")
-	WebElement checkoutButton;
+	private WebElement checkoutButton;
 	
 	public List<WebElement> CartProductsEle() {
 		return cartProducts;
