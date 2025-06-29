@@ -40,9 +40,9 @@ public class BaseTest {
 		String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") : properties.getProperty("browser") ;
 //		properties.getProperty("browser");
 		if (browserName.contains("chrome")) {
-			System.setProperty("webdriver.chrome.driver",
-					"C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
-//			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
+//			System.setProperty("webdriver.chrome.driver",
+//					"C:/Users/167557/Documents/chromedriver-win64/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
 			if(browserName.contains("headless"))
 				options.addArguments("headless");
@@ -53,9 +53,10 @@ public class BaseTest {
 			// for firefox driver initiaztion
 
 		} else if (browserName.equals("edge")) {
-			System.setProperty("webdriver.edge.driver",
-					"C:\\Users\\167557\\Documents\\edgedriver_win64\\msedgedriver.exe");
-//			System.setProperty("webdriver.chrome.driver","C:/Users/allan/OneDrive/Documents/chromedriver-win64/chromedriver.exe");
+//			System.setProperty("webdriver.edge.driver",
+//					"C:\\Users\\167557\\Documents\\edgedriver_win64\\msedgedriver.exe");
+			System.setProperty("webdriver.chrome.driver","C:\\Users\\allan\\OneDrive\\Documents\\edgedriver_win64\\msedgedriver.exe");
+
 			driver = new EdgeDriver();
 
 		}
