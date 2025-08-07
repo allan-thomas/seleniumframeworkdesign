@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results retried="1" ignored="0" total="6" passed="2" failed="2" skipped="1">
+<testng-results retried="1" ignored="0" total="6" passed="4" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-23T20:47:30 IST" name="Suite" finished-at="2025-06-23T20:47:52 IST" duration-ms="21601">
+  <suite started-at="2025-08-01T23:21:52 IST" name="Suite" finished-at="2025-08-01T23:22:42 IST" duration-ms="50545">
     <groups>
       <group name="ErrorHandling">
         <method signature="ErrorValidationsTest.LoginErrorValidation()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" name="LoginErrorValidation" class="javaseleniumlearning.tests.ErrorValidationsTest"/>
@@ -12,117 +12,13 @@
         <method signature="SubmitOrderTest.OrderHistoryTest()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" name="OrderHistoryTest" class="javaseleniumlearning.tests.SubmitOrderTest"/>
       </group> <!-- purchase -->
     </groups>
-    <test started-at="2025-06-23T20:47:30 IST" name="Submit Order Test" finished-at="2025-06-23T20:47:50 IST" duration-ms="19869">
-      <class name="javaseleniumlearning.tests.SubmitOrderTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-06-23T20:47:31 IST" name="launchApplication" finished-at="2025-06-23T20:47:34 IST" duration-ms="3477" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-06-23T20:47:34 IST" name="submitOrder" data-provider="getData" finished-at="2025-06-23T20:47:38 IST" duration-ms="3384" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{country=indi, password=Atk.1881, productName=ZARA COAT 3, username=atk@mail.com}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-06-23T20:47:38 IST" name="tearDown" finished-at="2025-06-23T20:47:38 IST" duration-ms="202" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-06-23T20:47:38 IST" name="launchApplication" finished-at="2025-06-23T20:47:41 IST" duration-ms="3293" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApplication -->
-        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-06-23T20:47:41 IST" name="submitOrder" data-provider="getData" finished-at="2025-06-23T20:47:50 IST" duration-ms="8891" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{country=indi, password=Atk.1881, productName=ADIDAS ORIGINAL, username=atk@mail.com}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:111)
-at org.testng.Assert.failNotEquals(Assert.java:1590)
-at org.testng.Assert.assertTrue(Assert.java:57)
-at org.testng.Assert.assertTrue(Assert.java:67)
-at javaseleniumlearning.tests.SubmitOrderTest.submitOrder(SubmitOrderTest.java:45)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- submitOrder -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-06-23T20:47:50 IST" name="tearDown" finished-at="2025-06-23T20:47:50 IST" duration-ms="200" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method signature="OrderHistoryTest()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-06-23T20:47:50 IST" name="OrderHistoryTest" finished-at="2025-06-23T20:47:50 IST" depends-on-methods="javaseleniumlearning.tests.SubmitOrderTest.submitOrder" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method javaseleniumlearning.tests.SubmitOrderTest.OrderHistoryTest() on instance javaseleniumlearning.tests.SubmitOrderTest@25aca718 depends on not successfully finished methods 
-[javaseleniumlearning.tests.SubmitOrderTest.submitOrder() on instance javaseleniumlearning.tests.SubmitOrderTest@25aca718]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method javaseleniumlearning.tests.SubmitOrderTest.OrderHistoryTest() on instance javaseleniumlearning.tests.SubmitOrderTest@25aca718 depends on not successfully finished methods 
-[javaseleniumlearning.tests.SubmitOrderTest.submitOrder() on instance javaseleniumlearning.tests.SubmitOrderTest@25aca718]
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:741)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
-at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
-at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-at java.base/java.lang.Thread.run(Thread.java:1583)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OrderHistoryTest -->
-      </class> <!-- javaseleniumlearning.tests.SubmitOrderTest -->
-    </test> <!-- Submit Order Test -->
-    <test started-at="2025-06-23T20:47:30 IST" name="Error Validations Test" finished-at="2025-06-23T20:47:52 IST" duration-ms="21601">
+    <test started-at="2025-08-01T23:21:52 IST" name="Error Validations Test" finished-at="2025-08-01T23:22:38 IST" duration-ms="46413">
       <class name="javaseleniumlearning.tests.ErrorValidationsTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:30 IST" name="launchApplication" finished-at="2025-06-23T20:47:34 IST" duration-ms="3737" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:21:52 IST" name="launchApplication" finished-at="2025-08-01T23:22:03 IST" duration-ms="11395" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="LoginErrorValidation()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:34 IST" name="LoginErrorValidation" finished-at="2025-06-23T20:47:35 IST" duration-ms="441" status="FAIL">
+        <test-method signature="LoginErrorValidation()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:03 IST" name="LoginErrorValidation" finished-at="2025-08-01T23:22:04 IST" duration-ms="1313" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [Incorrect email password.] but found [Incorrect email or password.]]]>
@@ -162,56 +58,26 @@ at java.base/java.lang.Thread.run(Thread.java:1583)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:35 IST" name="tearDown" finished-at="2025-06-23T20:47:35 IST" duration-ms="136" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:05 IST" name="tearDown" finished-at="2025-08-01T23:22:05 IST" duration-ms="406" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:35 IST" name="launchApplication" finished-at="2025-06-23T20:47:38 IST" duration-ms="3317" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:05 IST" name="launchApplication" finished-at="2025-08-01T23:22:12 IST" duration-ms="6604" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method retried="true" signature="ProductErrorValidation()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:38 IST" name="ProductErrorValidation" finished-at="2025-06-23T20:47:40 IST" duration-ms="1807" status="SKIP">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method retried="true" signature="ProductErrorValidation()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:12 IST" name="ProductErrorValidation" finished-at="2025-08-01T23:22:27 IST" duration-ms="15009" status="SKIP">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[element click intercepted: Element <button _ngcontent-qok-c33="" routerlink="/dashboard/cart" class="btn btn-custom" style="margin-top: -10px;" tabindex="0">...</button> is not clickable at point (1174, 27). Other element would receive the click: <div _ngcontent-qok-c31="" class="ngx-spinner-overlay ng-tns-c31-1 ng-trigger ng-trigger-fadeIn ng-star-inserted" style="background-color: rgba(51, 51, 51, 0.8); z-index: 99999; position: fixed; opacity: 1;">...</div>
-  (Session info: chrome=137.0.7151.120)
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [7ea782888626e4addb299658e9326534, clickElement {id=f.D6BF820C7546CB0BDEC2F7A9AC57D6E9.d.62F0D71205096ACFA477316199D18F5A.e.86}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\167557\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57400}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57400/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (7ea782888626e4addb299658e9326534)] -> xpath: //button[@routerlink='/dashboard/cart']]
-Session ID: 7ea782888626e4addb299658e9326534]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button _ngcontent-qok-c33="" routerlink="/dashboard/cart" class="btn btn-custom" style="margin-top: -10px;" tabindex="0">...</button> is not clickable at point (1174, 27). Other element would receive the click: <div _ngcontent-qok-c31="" class="ngx-spinner-overlay ng-tns-c31-1 ng-trigger ng-trigger-fadeIn ng-star-inserted" style="background-color: rgba(51, 51, 51, 0.8); z-index: 99999; position: fixed; opacity: 1;">...</div>
-  (Session info: chrome=137.0.7151.120)
-Build info: version: '4.33.0', revision: '2c6aaad03a'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [7ea782888626e4addb299658e9326534, clickElement {id=f.D6BF820C7546CB0BDEC2F7A9AC57D6E9.d.62F0D71205096ACFA477316199D18F5A.e.86}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.120, chrome: {chromedriverVersion: 137.0.7151.68 (2989ffee9373..., userDataDir: C:\Users\167557\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57400}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57400/devtoo..., se:cdpVersion: 137.0.7151.120, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (7ea782888626e4addb299658e9326534)] -> xpath: //button[@routerlink='/dashboard/cart']]
-Session ID: 7ea782888626e4addb299658e9326534
-at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at jdk.proxy2/jdk.proxy2.$Proxy16.click(Unknown Source)
-at javaseleniumlearning.AbstractComponents.AbstractComponent.goToCartPage(AbstractComponent.java:46)
-at javaseleniumlearning.pageobjects.ProductCatalogue.addProductToCart(ProductCatalogue.java:54)
-at javaseleniumlearning.tests.ErrorValidationsTest.ProductErrorValidation(ErrorValidationsTest.java:42)
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1590)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at org.testng.Assert.assertTrue(Assert.java:67)
+at javaseleniumlearning.tests.ErrorValidationsTest.ProductErrorValidation(ErrorValidationsTest.java:46)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -234,27 +100,81 @@ at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecut
 at java.base/java.lang.Thread.run(Thread.java:1583)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProductErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:40 IST" name="tearDown" finished-at="2025-06-23T20:47:40 IST" duration-ms="173" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:27 IST" name="tearDown" finished-at="2025-08-01T23:22:27 IST" duration-ms="543" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:40 IST" name="launchApplication" finished-at="2025-06-23T20:47:43 IST" duration-ms="3214" status="PASS">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:27 IST" name="launchApplication" finished-at="2025-08-01T23:22:33 IST" duration-ms="5918" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchApplication -->
-        <test-method signature="ProductErrorValidation()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:43 IST" name="ProductErrorValidation" finished-at="2025-06-23T20:47:52 IST" duration-ms="8465" status="PASS">
+        <test-method signature="ProductErrorValidation()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:33 IST" name="ProductErrorValidation" finished-at="2025-08-01T23:22:38 IST" duration-ms="4367" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProductErrorValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-06-23T20:47:52 IST" name="tearDown" finished-at="2025-06-23T20:47:52 IST" duration-ms="86" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.ErrorValidationsTest@2fc6f97f]" started-at="2025-08-01T23:22:38 IST" name="tearDown" finished-at="2025-08-01T23:22:38 IST" duration-ms="424" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- javaseleniumlearning.tests.ErrorValidationsTest -->
     </test> <!-- Error Validations Test -->
+    <test started-at="2025-08-01T23:21:52 IST" name="Submit Order Test" finished-at="2025-08-01T23:22:42 IST" duration-ms="50545">
+      <class name="javaseleniumlearning.tests.SubmitOrderTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:21:53 IST" name="launchApplication" finished-at="2025-08-01T23:22:02 IST" duration-ms="9348" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:02 IST" name="submitOrder" data-provider="getData" finished-at="2025-08-01T23:22:14 IST" duration-ms="12048" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{country=indi, password=Atk.1881, productName=ZARA COAT 3, username=atk@mail.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:14 IST" name="tearDown" finished-at="2025-08-01T23:22:14 IST" duration-ms="540" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:14 IST" name="launchApplication" finished-at="2025-08-01T23:22:21 IST" duration-ms="6630" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:21 IST" name="submitOrder" data-provider="getData" finished-at="2025-08-01T23:22:33 IST" duration-ms="12042" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{country=indi, password=Atk.1881, productName=ADIDAS ORIGINAL, username=atk@mail.com}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:33 IST" name="tearDown" finished-at="2025-08-01T23:22:34 IST" duration-ms="514" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:34 IST" name="launchApplication" finished-at="2025-08-01T23:22:39 IST" duration-ms="4991" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="OrderHistoryTest()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:39 IST" name="OrderHistoryTest" finished-at="2025-08-01T23:22:42 IST" depends-on-methods="javaseleniumlearning.tests.SubmitOrderTest.submitOrder" duration-ms="3009" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OrderHistoryTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:javaseleniumlearning.tests.SubmitOrderTest@25aca718]" started-at="2025-08-01T23:22:42 IST" name="tearDown" finished-at="2025-08-01T23:22:42 IST" duration-ms="395" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- javaseleniumlearning.tests.SubmitOrderTest -->
+    </test> <!-- Submit Order Test -->
   </suite> <!-- Suite -->
 </testng-results>
