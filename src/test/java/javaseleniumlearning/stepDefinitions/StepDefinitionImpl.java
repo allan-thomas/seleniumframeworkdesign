@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import javaseleniumlearning.TestComponents.BaseTest;
 import javaseleniumlearning.pageobjects.CartPage;
@@ -19,7 +20,8 @@ public class StepDefinitionImpl extends BaseTest {
 	
 	public LandingPage landingpage;
 	public ProductCatalogue productcatalogue;
-	public CartPage cart;  
+	public CartPage cart; 
+	public ConfirmationPage confirmationpage;
 	
 //	Given I landed on Ecommerce Page
 	@Given("I landed on Ecommerce Page")
@@ -48,6 +50,14 @@ public class StepDefinitionImpl extends BaseTest {
 		boolean match = cart.checkForProductName(productName);
 		Assert.assertTrue(match);
 		CheckoutPage checkoutpage = cart.checkoutBtn();
-		ConfirmationPage confirmationpage = checkoutpage.cartCheckout("india");
+		confirmationpage = checkoutpage.cartCheckout("india");
+	}
+	
+//	Then "Thankyou for the order." message is displayed on Confirmationpage
+	@Then ("{string} message is displayed on Confirmationpage")
+	public void message_is_displayed_on_Confirmationpage(String string) {
+		String actualText = confirmationpage.getConfirmationMessage();
+		Assert.assertTrue(actualText.equalsIgnoreCase(string));
+		System.out.println(confirmationpage.getorderID());
 	}
 }
