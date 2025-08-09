@@ -58,6 +58,5 @@ public class StepDefinitionImpl extends BaseTest {
 	public void message_is_displayed_on_Confirmationpage(String string) {
 		String actualText = confirmationpage.getConfirmationMessage();
 		Assert.assertTrue(actualText.equalsIgnoreCase(string));
-		System.out.println(confirmationpage.getorderID());
 	}
 }
