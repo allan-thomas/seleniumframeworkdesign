@@ -58,5 +58,13 @@ public class StepDefinitionImpl extends BaseTest {
 	public void message_is_displayed_on_Confirmationpage(String string) {
 		String actualText = confirmationpage.getConfirmationMessage();
 		Assert.assertTrue(actualText.equalsIgnoreCase(string));
+		driver.close();
+	}
+	
+//	Then "Incorrect email password." message is displayed on Landingpage (from ErrorValidation.feature)
+	@Then("{string} message is displayed on Landingpage")
+    public void message_is_displayed_on_landingpage(String string) {
+		Assert.assertEquals(landingpage.getErrorMessage(), string);
+		driver.close();
 	}
 }
